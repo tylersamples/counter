@@ -1,18 +1,13 @@
 defmodule Counter do
-  @moduledoc """
-  Documentation for `Counter`.
-  """
+  use Rustler, otp_app: :counter, crate: :counter
 
-  @doc """
-  Hello world.
+  defp err, do: :erlang.nif_error(:nif_not_loaded)
 
-  ## Examples
+  def new(), do: err()
 
-      iex> Counter.hello()
-      :world
+  def increment(ref), do: err()
 
-  """
-  def hello do
-    :world
-  end
+  def decrement(ref), do: err()
+
+  def read(ref), do: err()
 end
