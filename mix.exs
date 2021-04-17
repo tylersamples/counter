@@ -7,6 +7,12 @@ defmodule Counter.MixProject do
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
+      compilers: [:rustler] ++ Mix.compilers(),
+      rustler_crates: [
+        counter: [
+          mode: if(Mix.env() == :prod, do: :release, else: :debug)
+        ]
+      ],
       deps: deps()
     ]
   end
