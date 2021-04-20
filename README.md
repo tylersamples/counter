@@ -1,21 +1,22 @@
-# Counter
+# Rustler Resource Objects Counter Example
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `counter` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:counter, "~> 0.1.0"}
-  ]
-end
+Setup:
+```
+$ git clone git@github.com:tylersamples/counter.git && cd counter
+$ mix deps.get
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/counter](https://hexdocs.pm/counter).
+Using the counter:
+```
+iex(1)> Counter.new()
+#Reference<0.3379365608.2720137221.242534>
+iex(2)> counter = Counter.new()
+#Reference<0.4020670021.1591345154.158521>
+iex(3)> Counter.__info__(:functions)
+[__init__: 0, decrement: 1, increment: 1, new: 0, read: 1]
+iex(4)> counter |> Counter.increment() |> Counter.decrement() |> Counter.read()
+0
+```
+
+More information can be found: https://smpls.dev/p/rustler-resources
 
